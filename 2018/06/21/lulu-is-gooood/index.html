@@ -1,86 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-  <!-- Head tag -->
-  <head>
+<!doctype html>
+<head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="&lt;p&gt; ##IMG&lt;/p&gt;
+&lt;p&gt; &lt;img src=&#34;https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png&#34; alt=&#34;alt text&#34; title=&#34;Logo Title Text 1&#34;&gt;&lt;/p&gt;
+">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+  <title>lulu is gooood | Hiyaha&#39;s Blog</title>
 
-  <!-- Title -->
-  
-  <title>lulu is gooood - Hiyaha&#39;s Blog</title>
-
-  <!--Favicon-->
-  <link rel="icon" href="favicon/favicon.ico">
-
-  <!--Description-->
-  
-      <meta name="description" content="##IMG">
-  
-
-  <!--Author-->
-  
-      <meta name="author" content="hiyaha">
-  
-
-  <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/styles.css">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Analytics -->
-  
+  <link rel="stylesheet" id="chosen-theme" href="https://rawgit.com/fiatjaf/classless/master/themes/plain/theme.css">
+  <script>
+let link = document.getElementById('chosen-theme')
+let widget = document.createElement('div')
+widget.style.position = 'absolute'
+widget.style.right = '5px'
+widget.style.top = '2px'
+widget.style.background = 'beige'
+widget.style.color = '#444'
+widget.style.zIndex = 99
+widget.style.padding = '4px 8px'
+widget.innerHTML = `
+<label>
+  <p>No theme was set on <code>theme_config</code>.<br>
+     Choose a theme from the list to experiment with it:</p>
+  <select></select>
+</label>
+`
+fetch('https://api.github.com/repos/fiatjaf/classless/contents/themes')
+  .then(r => r.json())
+  .then(files => {
+    document.body.appendChild(widget)
+    let select = document.querySelector('select')
+    files
+      .filter(f => f.type === 'dir')
+      .forEach(f => {
+        let option = document.createElement('option')
+        option.value = f.name
+        option.innerHTML = f.name
+        select.appendChild(option)
+      })
+    let options = Array.from(select.querySelectorAll('option'))
+    let chosen = options[parseInt(Math.random() * options.length)]
+    chosen.selected = true
+    link.href = link.href.replace(/themes\/[^\/]+/, `themes/${chosen.value}`)
+    select.addEventListener('change', e => {
+      let chosen = e.target.value
+      link.href = link.href.replace(/themes\/[^\/]+/, `themes/${chosen}`)
+    })
+  })
+  .catch(console.log)
+  </script>
 
 </head>
 
-
-  <body>
-  	<div class="container-fluid navbar-container m-sm-5">
-      <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
-  <a class="navbar-brand ml-2" href="/">Hiyaha's Blog</a>
-  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
-    <ul class="navbar-nav ml-auto my-auto">
+<body>
+  <header role="banner">
+    <a href="/">
+      <img src="https://picsum.photos/640/480">
+    </a>
+    <h1>
+      <a href="/">Hiyaha&#39;s Blog</a>
+    </h1>
+    <aside>
+      <p></p>
+    </aside>
+  </header>
+  <nav>
+    <ul>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/archives/">Archives</a>
+      </li>
       
     </ul>
-    <hr class="hidden-md-up" />
-  </div>
-</nav>
+  </nav>
+  <main>
+    <article>
+  <header>
+  
+  <h1><a href="https://hiyaha.github.io/2018/06/21/lulu-is-gooood/">lulu is gooood</a></h1>
+  <aside>
+    
+    <time datetime="182018-06-21">
+      June 21st 2018
+    </time>
+    
+    <ul>
+    
+    </ul>
+  </aside>
+</header>
 
-
-  		<div class="row">
-  			<div class="col-12 mb-4">
-  <img class="img-fluid project-img" src="/images/IMG_3514.jpg" alt="lulu is gooood">
-</div>
-<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
-  <h1>lulu is gooood</h1>
-</div>
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
-  <p> ##IMG</p>
+  <div><p> ##IMG</p>
 <p> <img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 1"></p>
-
 </div>
+</article>
 
+  </main>
+  <aside>
+    <p>This is an `aside`, a useful place to put information of any kind: metadata about the site author (with or without pictures), brief information about the purposes of the site, a static collection of external links or anything else.</p>
+<p>For some Classless themes pictures and data about the author may suit better in the `cover` and `description` site attributes (see `config.toml`), but most of the times that kind of information will fit here better.</p>
 
-      </div>
-      
-  	</div>
+  </aside>
+  <footer role="contentinfo">
+    <p>A default site footer. If you don't know what to place here maybe you should just write your name plus the current year?</p>
+<p>If you want to have a sitemap, a contact form or other complex stuff, most Classless themes will also handle it nicely. Or you can take a look at the <code>aside.html</code> partial.</p>
 
-    <!-- After footer scripts -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-  </body>
-</html>
+  </footer>
+</body>

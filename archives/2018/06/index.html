@@ -1,109 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-  <!-- Head tag -->
-  <head>
+<!doctype html>
+<head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Title -->
-  
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
   <title>Hiyaha&#39;s Blog</title>
 
-  <!--Favicon-->
-  <link rel="icon" href="favicon/favicon.ico">
-
-  <!--Description-->
-  
-
-  <!--Author-->
-  
-      <meta name="author" content="hiyaha">
-  
-
-  <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/styles.css">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Analytics -->
-  
+  <link rel="stylesheet" id="chosen-theme" href="https://rawgit.com/fiatjaf/classless/master/themes/plain/theme.css">
+  <script>
+let link = document.getElementById('chosen-theme')
+let widget = document.createElement('div')
+widget.style.position = 'absolute'
+widget.style.right = '5px'
+widget.style.top = '2px'
+widget.style.background = 'beige'
+widget.style.color = '#444'
+widget.style.zIndex = 99
+widget.style.padding = '4px 8px'
+widget.innerHTML = `
+<label>
+  <p>No theme was set on <code>theme_config</code>.<br>
+     Choose a theme from the list to experiment with it:</p>
+  <select></select>
+</label>
+`
+fetch('https://api.github.com/repos/fiatjaf/classless/contents/themes')
+  .then(r => r.json())
+  .then(files => {
+    document.body.appendChild(widget)
+    let select = document.querySelector('select')
+    files
+      .filter(f => f.type === 'dir')
+      .forEach(f => {
+        let option = document.createElement('option')
+        option.value = f.name
+        option.innerHTML = f.name
+        select.appendChild(option)
+      })
+    let options = Array.from(select.querySelectorAll('option'))
+    let chosen = options[parseInt(Math.random() * options.length)]
+    chosen.selected = true
+    link.href = link.href.replace(/themes\/[^\/]+/, `themes/${chosen.value}`)
+    select.addEventListener('change', e => {
+      let chosen = e.target.value
+      link.href = link.href.replace(/themes\/[^\/]+/, `themes/${chosen}`)
+    })
+  })
+  .catch(console.log)
+  </script>
 
 </head>
 
-
-  <body>
-  	<div class="container-fluid navbar-container m-sm-5">
-      <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
-  <a class="navbar-brand ml-2" href="/">Hiyaha's Blog</a>
-  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
-    <ul class="navbar-nav ml-auto my-auto">
+<body>
+  <header role="banner">
+    <a href="/">
+      <img src="https://picsum.photos/640/480">
+    </a>
+    <h1>
+      <a href="/">Hiyaha&#39;s Blog</a>
+    </h1>
+    <aside>
+      <p></p>
+    </aside>
+  </header>
+  <nav>
+    <ul>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/archives/">Archives</a>
+      </li>
       
     </ul>
-    <hr class="hidden-md-up" />
-  </div>
-</nav>
+  </nav>
+  <main>
+    
 
+<section>
+  <ul>
+    
+      <li>
+        <article>
+          <header>
+  
+  <h1><a href="https://hiyaha.github.io/2018/06/21/angus-is-comming/">angus is comming</a></h1>
+  <aside>
+    
+    <time datetime="182018-06-21">
+      June 21st 2018
+    </time>
+    
+    <ul>
+    
+    </ul>
+  </aside>
+</header>
 
-  		<div class="row">
-  			
-    <div class="col-md-6 col-12 mb-4">
-  <div class="hovereffect">
-    <a href="/2018/06/21/angus-is-comming/">
-      <img class="img-fluid portfolio-img" src="/images/IMG_3514.jpg" alt="angus is comming">
-      <div class="overlay">
-        <span class="overlay-text">angus is comming</span>
-      </div>
-    </a>
-  </div>
-</div>
+          
+        </article>
+      </li>
+    
+      <li>
+        <article>
+          <header>
+  
+  <h1><a href="https://hiyaha.github.io/2018/06/21/lulu-is-gooood/">lulu is gooood</a></h1>
+  <aside>
+    
+    <time datetime="182018-06-21">
+      June 21st 2018
+    </time>
+    
+    <ul>
+    
+    </ul>
+  </aside>
+</header>
 
+          
+        </article>
+      </li>
+    
+      <li>
+        <article>
+          <header>
+  
+  <h1><a href="https://hiyaha.github.io/2018/06/20/hello-world/">Hello World</a></h1>
+  <aside>
+    
+    <time datetime="182018-06-20">
+      June 20th 2018
+    </time>
+    
+    <ul>
+    
+    </ul>
+  </aside>
+</header>
 
-    <div class="col-md-6 col-12 mb-4">
-  <div class="hovereffect">
-    <a href="/2018/06/21/lulu-is-gooood/">
-      <img class="img-fluid portfolio-img" src="/images/IMG_3514.jpg" alt="lulu is gooood">
-      <div class="overlay">
-        <span class="overlay-text">lulu is gooood</span>
-      </div>
-    </a>
-  </div>
-</div>
+          
+        </article>
+      </li>
+    
+  </ul>
+</section>
+<footer>
+  <nav>
+    <ul>
+      <li>
+        <a >
+          prev
+        </a>
+      </li>
+      <li>
+        <a >
+          next
+        </a>
+      </li>
+    </ul>
+  </nav>
+</footer>
 
+  </main>
+  <aside>
+    <p>This is an `aside`, a useful place to put information of any kind: metadata about the site author (with or without pictures), brief information about the purposes of the site, a static collection of external links or anything else.</p>
+<p>For some Classless themes pictures and data about the author may suit better in the `cover` and `description` site attributes (see `config.toml`), but most of the times that kind of information will fit here better.</p>
 
-    <div class="col-md-6 col-12 mb-4">
-  <div class="hovereffect">
-    <a href="/2018/06/20/hello-world/">
-      <img class="img-fluid portfolio-img" src="/images/IMG_3514.jpg" alt="Hello World">
-      <div class="overlay">
-        <span class="overlay-text">Hello World</span>
-      </div>
-    </a>
-  </div>
-</div>
+  </aside>
+  <footer role="contentinfo">
+    <p>A default site footer. If you don't know what to place here maybe you should just write your name plus the current year?</p>
+<p>If you want to have a sitemap, a contact form or other complex stuff, most Classless themes will also handle it nicely. Or you can take a look at the <code>aside.html</code> partial.</p>
 
-
-
-      </div>
-      
-  	</div>
-
-    <!-- After footer scripts -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-  </body>
-</html>
+  </footer>
+</body>
